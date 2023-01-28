@@ -1,0 +1,36 @@
+.search-box {
+  width: fit-content;
+  background-color: white;
+  margin: 1vw auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  padding: 0.25rem 0.5rem;
+  padding-left: 1.25rem;
+  border-radius: 20vw;
+
+  i {
+    color: #767676;
+    font-size: 1.6rem;
+  }
+
+  input {
+    border: none;
+    flex: 1;
+    max-width: 98%;
+  }
+  
+  .btn {
+    border-radius: 50%;
+    border: none;
+    flex: 1;
+    width: 4.5rem;
+    height: 4.5rem;
+
+    &:hover {
+      cursor: pointer;
+      i { color: #58181f; }
+    }
+  }
+}

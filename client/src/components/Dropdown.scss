@@ -1,0 +1,56 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  width: 15rem;
+
+  button {
+    width: 100%;
+    display: inline-flex;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: #464646;
+    border: 0.25px solid #d6d6d6;
+    border-radius: 3vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    i {
+      position: absolute;
+      right: 1vw;
+    }
+    
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.items-container {
+  position: absolute;
+  left: 0;
+  top: 2.5rem;
+  z-index: 10;
+  margin-top: 0.5rem;
+  width: 15rem;
+  background-color: #fff;
+  box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
+  border-radius: 0.5vw;
+  overflow: hidden;
+
+  div {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      color: #565656;
+      padding: 1.5vw 1rem;      
+
+      &:hover {
+        background-color: #e8e8e8;
+        cursor: pointer;
+      }
+    }
+  }
+}

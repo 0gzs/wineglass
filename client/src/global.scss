@@ -1,6 +1,16 @@
-h1 {
-  color: red;
-  span {
-    color: orange;
-  }
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  max-height: 100%;
+  font-size: 1.4rem;
+  font-family: sans-serif;
+}
+

@@ -1,0 +1,39 @@
+.landing-hero {
+  width: 100vw;
+  height: calc((1080 / 1920) * 100vw);
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1558346489-19413928158b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: top;
+  padding-top: 20vw;
+  letter-spacing: 1px;
+
+  .cover {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    opacity: 0.3;
+  }
+}
+
+.landing-content {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  
+  h1 {
+    font-size: clamp(3.5rem, 4vw, 4.5rem);
+    color: #fff;
+    letter-spacing: 3px;
+  }
+}
+
+h4 {
+  position: absolute;
+  top: 2vw;
+  right: 5vw;
+  color: #fff;
+  z-index: 20;
+}
