@@ -24,7 +24,7 @@ const Dropdown = () => {
             ): (
               <>
                 { selected }
-                <i className="fa-regular fa-circle-xmark"></i> 
+                <i className="fa-regular fa-circle-xmark exit"></i> 
 
               </>
             )}
