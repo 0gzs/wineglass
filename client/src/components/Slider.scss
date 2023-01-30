@@ -1,0 +1,10 @@
+.slider {
+  height: auto;
+  width: 100vw;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  position: relative;
+  overflow-y: scroll;
+}
