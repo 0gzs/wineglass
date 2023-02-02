@@ -15,7 +15,7 @@ module.exports = {
   },
   devtool: mode === "development" ? "eval-source-map" : "source-map",
   mode: mode,
-  watch: true,
+  watch: mode === "development" ? true : false,
   watchOptions: {
     aggregateTimeout: 500,
     poll: 500,
