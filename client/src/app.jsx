@@ -3,6 +3,7 @@ import axios from 'axios'
 import Slider from './components/Slider.jsx'
 import Loader from './components/Loader.jsx'
 import Wine from './components/Wine.jsx'
+import { saveWine } from './helperFunctions/index.js'
 
 const api = axios.create({
   baseURL: '/api'
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <div className='container'>
+      <button style={{ margin: "1vw", width: '95%' }} onClick={() => saveWine(wine)}>Save these Wine</button>
       <Slider>
         {wine.map((w, i) => w && <Wine key={i} name={w.name} img={w.image} description={w.description} />)}
         {wine && wine.length < 3 && <Loader />} 

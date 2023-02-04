@@ -17,6 +17,8 @@ body {
 .container {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 button {
@@ -26,6 +28,8 @@ button {
   max-width: 100%;
   padding: 1em;
   color: white;
+  
+  &:hover { cursor: pointer; }
 }
 
 svg{
