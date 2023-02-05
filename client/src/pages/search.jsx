@@ -2,7 +2,7 @@ import React from 'react'
 import SearchBox from '../components/SearchBox'
 import './style.scss'
 
-const Landing = () => {
+const Search = () => {
   return (
     <>
       <div className='landing-hero'>
@@ -18,4 +18,4 @@ const Landing = () => {
   )
 }
 
-export default Landing
+export default Search

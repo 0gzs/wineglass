@@ -22,11 +22,8 @@ body {
 }
 
 button {
-  background-color: rgb(25, 24, 24);
-  border: none;
-  width: 100%;
   max-width: 100%;
-  padding: 1em;
+  padding: 0.8em;
   color: white;
   
   &:hover { cursor: pointer; }

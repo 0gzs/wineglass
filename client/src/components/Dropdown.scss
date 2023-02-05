@@ -1,20 +1,17 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  text-align: left;
-  width: 15rem;
+  width: fit-content;
 
   button {
     width: 100%;
     display: inline-flex;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.75em 1em;
+    padding-right: 2em;
     color: #464646;
     border: 0.25px solid #d6d6d6;
-    border-radius: 3vw;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    border-radius: 1vw;
 
     i {
       position: absolute;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Dropdown.scss'
 
-const Dropdown = () => {
+const Dropdown = ({ title, options }) => {
   const [open, setOpen] = useState(false)
   const [selected, setSelected] = useState('')
 
@@ -10,7 +10,6 @@ const Dropdown = () => {
     setSelected(e.target.innerText) 
     handleOpen()
   }
-  const options = ['Syrah', 'Chardonnay', 'Pinot Grigio', 'Pinot Noir', 'Cabernet', 'Red Blend', 'Sauvignon Blanc']
 
   return (
     <div className='dropdown'>
@@ -18,7 +17,7 @@ const Dropdown = () => {
           <button type="button" onClick={handleOpen}>
             {!selected || selected.length == 0 ? (
               <>
-                Type of Wine 
+                { title } 
                 <i className="fa-solid fa-chevron-down"></i>
               </>
             ): (

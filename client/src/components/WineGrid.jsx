@@ -1,7 +1,7 @@
 import React from 'react'
-import './Slider.scss'
+import './WineGrid.scss'
 
-const Slider = ({ children }) => {
+const WineGrid = ({ children }) => {
   return (
     <div className='slider'>
       {children}
@@ -9,4 +9,4 @@ const Slider = ({ children }) => {
   )
 }
 
-export default Slider
+export default WineGrid
