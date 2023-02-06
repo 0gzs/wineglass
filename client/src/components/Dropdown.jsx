@@ -6,9 +6,10 @@ const Dropdown = ({ title, options, handler, selected }) => {
 
   const handleOpen = () => setOpen(!open)
 
-  const handleSelect = e => {
-    handler(e.target.innerText)
-    setOpen(false)
+  const handleSelect = (e, i) => {
+    if (i) handler(e.target.innerText, i)
+    else handler(e.target.innerText)
+    setOpen(false) 
   }
 
   return (
@@ -31,7 +32,7 @@ const Dropdown = ({ title, options, handler, selected }) => {
         <div className='items-container'>
           <div>
             {options.map((opt, i) => {
-              return <p key={i} onClick={handleSelect}>{opt}</p>
+              return <p key={i} onClick={e => handleSelect(e, i)}>{opt}</p>
             })}
           </div>
         </div>

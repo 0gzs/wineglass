@@ -20,7 +20,6 @@ function App() {
       <Search handleWine={handleWine}  />
       <WineGrid>
         {wine && wine.map((w, i) => w && <Wine key={i} wine={w} />)}
-        {wine && wine.length < 3 && <Loader />} 
       </WineGrid>
     </div>
   )

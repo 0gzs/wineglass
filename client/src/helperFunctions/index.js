@@ -32,16 +32,20 @@ export const saveWine = async wineArr => {
   }
 }
 
-const getWine = async (query) => {
+export const fetchByDesc = async (query) => {
   try {
-    const data = await axios.post('/wine/api/like', { query: query })
-    return data
+    const res = await axios.post('/wine/api/desc', { query: query })
+    return res.data
   } catch (err) {
     console.log({ error: err })
   }
 }
 
-export const searchQuery = async (query, type) => {
-  const response = await getWine(query)
-  return response.data
+export const fetchByName = async (name) => {
+  try {
+    const res = await axios.post('/wine/api/name', { query: name })
+    return res.data
+  } catch (err) {
+    console.log({ error: err })
+  }
 }

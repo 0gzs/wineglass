@@ -1,7 +1,29 @@
-.search-box {
-  width: fit-content;
+.search-container {
+  width: 375px;
   background-color: #fff;
   margin: 1vw auto;
+
+  .tabs {
+    width: fit-content;
+    display: flex;
+    
+    p {
+      padding: 0.75em;
+      margin-bottom: 1vw;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .selected {
+      background-color: #222;
+      color: #fff;
+    }
+  }
+}
+
+.search-box {
   display: flex;
   justify-content: center;
   align-items: center;
