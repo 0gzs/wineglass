@@ -10,7 +10,6 @@ const Search = ({ handleWine }) => {
         <div className='cover'></div>
 
         <div className='landing-content'>
-          <h1>Find the perfect glass,<br/>for your perfect night.</h1>
           <SearchBox handleWine={handleWine} />
         </div>
       </div>
