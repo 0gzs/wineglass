@@ -41,8 +41,9 @@ exports.addOneWine = async (req, res, next) => {
   })
 }
 
-exports.complexQuery = async (req, res, next) => {
-  const [rows] = await pool.query(`SELECT * FROM wine WHERE LOCATE('fish', description) > 0`)
+exports.getWineQuery = async (req, res, next) => {
+  const { query } = req.body
+  const [rows] = await pool.query(`SELECT * FROM wine WHERE LOCATE(?, description) > 0`, query)
   res.status(200).json({
     status: 'success',
     length: rows?.length,

@@ -10,7 +10,7 @@ const start = async () => {
 
 const getWineLinksFromPage = async () => {
   let page = await start()
-  await page.goto('https://www.bevmo.com/shop/wine/d/897432#!/?page=14', { "waitUntil": "networkidle0" })
+  await page.goto('https://www.bevmo.com/shop/wine/d/897432#!/?page=15', { "waitUntil": "networkidle0" })
   return await page.evaluate(() =>
     Array.from(document.querySelectorAll('#products .fp-item-container'), e => (
       e.querySelector('.fp-item-content .fp-item-image a').href
