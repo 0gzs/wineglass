@@ -1,16 +1,23 @@
 import React from 'react'
 import './Wine.scss'
 
-const Wine = ({ name, img, description }) => {
+const Wine = ({ wine }) => {
   return (
     <div className='product-container'>
       <div className='product-img'>
-        <img src={img} alt={name} />
+        <img src={wine.image} alt={wine.name} />
       </div>
       <div className='product-details'>
-        <h3>{name}</h3>
-        <p id='product-description'>{description}</p>
-        <button>More Details</button>
+        <h3>{wine.name}</h3>
+        <p id='product-description'>{wine.description}</p>
+        <div className='product-tags'>
+          <p><span>Price: </span>{wine.price}</p>
+          <p><span>Base Price: </span>{wine.base_price}</p>
+          <p><span>Type: </span>{wine.type}</p>
+          <p><span>Rating: </span>{wine.rating}</p>
+          <p><span>On Hand: </span>{wine.on_hand}</p>
+          <p><span>SKU: </span>{wine.sku}</p>
+        </div>
       </div>
     </div>
   )

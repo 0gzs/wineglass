@@ -4,8 +4,10 @@
   border: 5px solid rgb(25, 24, 24);
   align-items: center;
   padding: 2em 1em;
-  width: 100%;
+  min-width: 350px;
+  max-width: 450px;
   height: fit-content;
+  margin: 0 auto;
 }
 
 .product-img {
@@ -47,5 +49,17 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
     white-space: pre-wrap; 
+
+    button {
+      background-color: #000;
+    }
+  }
+}
+
+.product-tags {
+  p {
+    span {
+      font-weight: bold;
+    }
   }
 }

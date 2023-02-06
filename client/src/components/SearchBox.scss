@@ -21,6 +21,10 @@
     border: none;
     flex: 1;
     max-width: 98%;
+
+    &:focus {
+      outline: none;
+    }
   }
   
   .btn {

@@ -2,7 +2,7 @@ import React from 'react'
 import SearchBox from '../components/SearchBox'
 import './style.scss'
 
-const Search = () => {
+const Search = ({ handleWine }) => {
   return (
     <>
       <div className='landing-hero'>
@@ -11,7 +11,7 @@ const Search = () => {
 
         <div className='landing-content'>
           <h1>Find the perfect glass,<br/>for your perfect night.</h1>
-          <SearchBox />
+          <SearchBox handleWine={handleWine} />
         </div>
       </div>
     </>

@@ -11,7 +11,7 @@ const postWine = async wine => {
       rating: wine.rating,
       description: wine.description,
       on_hand: wine.on_hand,
-      sku: wine.sku,
+      sku: wine.SKU,
       type: wine.type,
       brand: wine.brand,
       region: wine.region,
@@ -30,4 +30,18 @@ export const saveWine = async wineArr => {
     const response = await postWine(wineArr[i])
     console.log(response)
   }
+}
+
+const getWine = async (query) => {
+  try {
+    const data = await axios.post('/wine/api/like', { query: query })
+    return data
+  } catch (err) {
+    console.log({ error: err })
+  }
+}
+
+export const searchQuery = async (query, type) => {
+  const response = await getWine(query)
+  return response.data
 }

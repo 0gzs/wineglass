@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import './Dropdown.scss'
 
-const Dropdown = ({ title, options }) => {
+const Dropdown = ({ title, options, handler, selected }) => {
   const [open, setOpen] = useState(false)
-  const [selected, setSelected] = useState('')
 
   const handleOpen = () => setOpen(!open)
+
   const handleSelect = e => {
-    setSelected(e.target.innerText) 
-    handleOpen()
+    handler(e.target.innerText)
+    setOpen(false)
   }
 
   return (
@@ -18,15 +18,13 @@ const Dropdown = ({ title, options }) => {
             {!selected || selected.length == 0 ? (
               <>
                 { title } 
-                <i className="fa-solid fa-chevron-down"></i>
               </>
             ): (
               <>
                 { selected }
-                <i className="fa-regular fa-circle-xmark exit"></i> 
-
               </>
             )}
+            <i className="fa-solid fa-chevron-down"></i>
           </button>
         </div>
       {open && (
