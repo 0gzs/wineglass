@@ -6,10 +6,16 @@
   .tabs {
     width: fit-content;
     display: flex;
+    gap: 1vw;
     
     p {
-      padding: 0.75em;
+      padding: 0.75em 1em;
       margin-bottom: 1vw;
+      background-color: rgba(225, 225, 225, 0.2);
+      border: solid transparent;
+      border-radius: 5px;
+      font-weight: 600;
+      color: rgb(125, 125, 125);
 
       &:hover {
         cursor: pointer;
@@ -17,8 +23,8 @@
     }
 
     .selected {
-      background-color: #222;
-      color: #fff;
+      background-color: rgba(225, 225, 225, 0.9);
+      color: rgb(25, 25, 25);
     }
   }
 }
@@ -34,34 +40,14 @@
   padding: 0.25em 0.75em;
   border-radius: 1vw;
 
-  i {
-    color: #767676;
-    font-size: 1.6rem;
-  }
-
   input {
     border: none;
     flex: 1;
     max-width: 98%;
+    font-size: 1.4rem;
 
     &:focus {
       outline: none;
-    }
-  }
-  
-  .btn {
-    border: none;
-    border-radius: 1vw;
-    background-color: mediumaquamarine;
-
-    i {
-      color: #fff;
-      padding-right: 0.5em;
-    }
-
-    &:hover {
-      cursor: pointer;
-      i { color: #58181f; }
     }
   }
 }

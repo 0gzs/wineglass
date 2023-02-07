@@ -25,10 +25,21 @@ button {
   max-width: 100%;
   padding: 0.8em;
   color: white;
-  background-color: #000;
   border: none;
-  
-  &:hover { cursor: pointer; }
+  border-radius: 1vw;
+  background-color: mediumaquamarine;
+  font-size: 1.2rem;
+
+  i {
+    font-size: 1em;
+    color: inherit;
+    padding-right: 0.5em;
+  }
+
+  &:hover {
+    cursor: pointer;
+    i { color: #58181f; }
+  }
 }
 
 svg {
