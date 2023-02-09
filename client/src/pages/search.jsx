@@ -1,8 +1,14 @@
-import React from 'react'
-import SearchBox from '../components/SearchBox'
 import './style.scss'
+import React from 'react'
+import useSearch from '../hooks/useSearch.js'
 
-const Search = ({ handleWine }) => {
+import SearchBox from '../components/SearchBox'
+import WineGrid from '../components/WineGrid'
+import Wine from '../components/Wine.jsx'
+
+const Search = () => {
+  const [wine, searchBy, handleToggle, fetchCallback] = useSearch()
+
   return (
     <>
       <div className='landing-hero'>
@@ -10,9 +16,20 @@ const Search = ({ handleWine }) => {
         <div className='cover'></div>
 
         <div className='landing-content'>
-          <SearchBox handleWine={handleWine} />
+          <div className='search-container'>
+            <div className='tabs'>
+              <p className={searchBy == 'name' ? "selected" : ""} onClick={() => handleToggle('name')}>By Name</p>
+              <p className={searchBy == 'desc' ? "selected" : ""} onClick={() => handleToggle('desc')}>By Desc:</p>
+            </div>
+            <SearchBox
+              callback={fetchCallback}
+              placeholder={searchBy == "desc" ? "e.g. 'jammy' or 'dry, tannin, cherry'" : "e.g. 'Unruly' 'La Marca' etc."} />
+          </div>
         </div>
       </div>
+      <WineGrid>
+        {wine && wine.map((w, i) => w && <Wine key={i} wine={w} />)}
+      </WineGrid>
     </>
   )
 }
