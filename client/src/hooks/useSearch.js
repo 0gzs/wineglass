@@ -1,8 +1,9 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { fetchByDesc, fetchByName } from "../helperFunctions";
 
 const useSearch = () => {
   const [wine, setWine] = useState()
+  const [nothingFound, setNothingFound] = useState(false)
   const [searchBy, setSearchBy] = useState('name')
 
   const fetchCallback = useCallback(async query => {
@@ -10,11 +11,12 @@ const useSearch = () => {
       await fetchByDesc(query)
     ) : await fetchByName(query)
     setWine(response.data)
+    if (response.data.length < 1) setNothingFound(true)
   })
 
   const handleToggle = selected => setSearchBy(selected)
 
-  return [wine, searchBy, handleToggle, fetchCallback]
+  return [wine, searchBy, nothingFound, handleToggle, fetchCallback]
 }
 
 export default useSearch

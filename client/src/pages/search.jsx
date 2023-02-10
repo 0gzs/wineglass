@@ -7,7 +7,7 @@ import WineGrid from '../components/WineGrid'
 import Wine from '../components/Wine.jsx'
 
 const Search = () => {
-  const [wine, searchBy, handleToggle, fetchCallback] = useSearch()
+  const [wine, searchBy, nothingFound, handleToggle, fetchCallback] = useSearch()
 
   return (
     <>
@@ -30,6 +30,8 @@ const Search = () => {
       <WineGrid>
         {wine && wine.map((w, i) => w && <Wine key={i} wine={w} />)}
       </WineGrid>
+
+      {<p id="nothing-found">A glass half-full or, perhaps, one half-empty... No, it's definitely empty.</p>}
     </>
   )
 }
