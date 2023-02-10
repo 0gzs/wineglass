@@ -31,7 +31,7 @@ const Search = () => {
         {wine && wine.map((w, i) => w && <Wine key={i} wine={w} />)}
       </WineGrid>
 
-      {<p id="nothing-found">A glass half-full or, perhaps, one half-empty... No, it's definitely empty.</p>}
+      {nothingFound && <p id="nothing-found">A glass half-full or, perhaps, one half-empty... No, it's definitely empty.</p>}
     </>
   )
 }
