@@ -9,7 +9,7 @@ const SearchBox = ({ callback, placeholder }) => {
       <div className='search-box'>
         <i className="fa-solid fa-magnifying-glass"></i>
         <input type="text" value={query} onChange={e => setQuery(e.target.value)} placeholder={placeholder} />
-        <button className='btn' onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} onClick={() => callback(query)}>
+        <button onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} onClick={() => callback(query)}>
           {!hovering ? (
             <i className="fa-solid fa-wine-glass-empty"></i>
           ) : (
