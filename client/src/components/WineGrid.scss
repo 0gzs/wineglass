@@ -5,7 +5,7 @@
   overflow-y: scroll;
   padding: 2vw 4vw;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-column-gap: 0.25em;
   grid-row-gap:6px; 
 }

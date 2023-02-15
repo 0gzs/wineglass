@@ -20,10 +20,12 @@ const Search = () => {
           <div className='tabs'>
             <p className={searchBy == 'name' ? "selected" : ""} onClick={() => handleToggle('name')}>By Name</p>
             <p className={searchBy == 'desc' ? "selected" : ""} onClick={() => handleToggle('desc')}>By Desc:</p>
+            <p className={searchBy == 'region' ? "selected" : ""} onClick={() => handleToggle('region')}>By Region:</p>
           </div>
           <SearchBox
             callback={fetchCallback}
-            placeholder={searchBy == "desc" ? "e.g. 'jammy' or 'dry, tannin, cherry'" : "e.g. 'Unruly' 'La Marca' etc."} />
+            searchBy={searchBy}
+            placeholder="Type here" />
         </div>
       </div>
 
@@ -31,7 +33,7 @@ const Search = () => {
         {wine && wine.map((w, i) => w && <Wine key={i} wine={w} />)}
       </WineGrid>
 
-      {nothingFound && <p id="nothing-found">Couldn't find that one. But it's been added to the list.<br /> Thanks 👋🏼</p>}
+      {nothingFound && wine.length == 0 && <p id="nothing-found">Couldn't find that one. But it's been added to the list.<br /> Thanks 👋🏼</p>}
     </>
   )
 }

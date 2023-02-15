@@ -41,22 +41,14 @@ exports.addOneWine = async (req, res, next) => {
   })
 }
 
-exports.getWineByDesc = async (req, res, next) => {
-  const { query } = req.body
-  const [rows] = await pool.query(`SELECT * FROM wine WHERE LOCATE(?, description) > 0;`, query)
+exports.getWineBy = async (req, res, next) => {
+  const { query, filterBy } = req.body
+  console.log(query, filterBy)
+  const [rows] = await pool.query(`SELECT * FROM wine WHERE LOCATE(?, ${filterBy}) > 0;`, query)
+  console.log(rows)
   res.status(200).json({
     status: 'success',
     length: rows?.length,
     data: rows
   })
 }
-
-exports.getWineByName = async (req, res, _) => {
-  const { query } = req.body 
-  const [rows] = await pool.query(`SELECT * FROM wine WHERE LOCATE(?, name) > 0`, query)
-  res.status(200).json({
-    status: 'success',
-    length: rows?.length,
-    data: rows
-  })
-} 

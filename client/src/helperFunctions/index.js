@@ -32,18 +32,10 @@ export const saveWine = async wineArr => {
   }
 }
 
-export const fetchByDesc = async (query) => {
+export const fetchBy = async (filterBy, value) => {
+  if (filterBy == 'desc') filterBy = 'description'
   try {
-    const res = await axios.post('/wine/api/desc', { query: query })
-    return res.data
-  } catch (err) {
-    console.log({ error: err })
-  }
-}
-
-export const fetchByName = async (name) => {
-  try {
-    const res = await axios.post('/wine/api/name', { query: name })
+    const res = await axios.post('/wine/api/search-by', { filterBy: filterBy, query: value })
     return res.data
   } catch (err) {
     console.log({ error: err })
