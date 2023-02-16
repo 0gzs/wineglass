@@ -3,17 +3,19 @@ import React from 'react'
 // import { useGetWine } from './hooks/hooks.js'
 
 import Search from './pages/search.jsx'
-import Loader from './components/Loader.jsx'
 
 function App() {
   // const res = useGetWine()
   // const handleSave = () => saveWine(res)
 
   return (
-    <div className='container'>
+    <>
+      <header>
+        <h3>wineglass</h3>
+      </header>
       {/* <button onClick={handleSave} style={{ width: '50%' }}>Save</button> */}
       <Search />
-    </div>
+    </>
   )
 }
 

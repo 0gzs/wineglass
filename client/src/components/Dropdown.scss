@@ -1,27 +1,23 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  width: fit-content;
-  margin: 0 0.25em;
+  width: 100%;
+  color: #000;
 
   button {
     width: 100%;
     display: inline-flex;
     border: none;
-    padding: 0.75em 1em;
-    padding-right: 2.5em;
-    color: #464646;
-    background-color: rgba(25, 24, 24, 0.1);
-    border: 0.25px solid #d6d6d6;
-    border-radius: 1vw;
-
-    i {
-      position: absolute;
-      right: 1vw;
-    }
+    font-size: 1.6rem;
+    background-color: #fff;
+    padding: 0.5em 2.8em;
 
     .exit:hover {
       color: red;
+    }
+
+    .icon-right {
+      right: 1em;
     }
     
     &:hover {
@@ -30,16 +26,28 @@
   }
 }
 
+i {
+  position: absolute;
+  font-size: 1.6rem;
+}
+
+.icon-left {
+  left: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .items-container {
   position: absolute;
   left: 0;
-  top: 4rem;
+  top: 100%;
   z-index: 10;
   margin-top: 0.5rem;
-  width: 15rem;
+  width: 100%;
+  max-height: 20em;
   box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
   border-radius: 0.5vw;
-  overflow: hidden;
+  overflow: scroll;
   background-color: white;
 
   div {
@@ -47,11 +55,12 @@
     flex-direction: column;
 
     p {
-      color: #565656;
-      padding: 1em 1rem;      
+      padding: 1em;      
+      font-size: 1.6rem;
+      color: #111;
 
       &:hover {
-        background-color: #e8e8e8;
+        background-color: rgba(100, 100, 100, 0.1);
         cursor: pointer;
       }
     }

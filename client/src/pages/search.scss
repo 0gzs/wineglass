@@ -1,0 +1,45 @@
+.main-search {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+@media (min-width: 780px) {
+  .main-search {
+    flex-direction: row;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+}
+
+h1 {
+  font-size: 3.6rem;
+  font-weight: 500;
+  color: #A1BDC4;
+}
+
+.sub { 
+  font-size: 1.8rem; 
+  color: #fff;   
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25em;
+  height: 5.8rem;
+  background-color: #fff;
+  margin: 0.8em 0;
+  
+  input[type="text"] {
+    padding: 1em;
+    width: 100%;
+    border: none;
+    font-size: 1.6rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

@@ -7,9 +7,9 @@ const Wine = ({ wine }) => {
       <div className='product-img'>
         <img src={wine.image} alt={wine.name} />
       </div>
+      <h3>{wine.name}</h3>
       <div className='product-details'>
-        <h3>{wine.name}</h3>
-        <p id='product-description'>{wine.description}</p>
+        <p className='product-description'>{wine.description}</p>
         <div className='product-tags'>
           <p><span>Price: </span>{wine.price}</p>
           <p><span>Base Price: </span>{wine.base_price}</p>

@@ -14,22 +14,52 @@ body {
   height: 100%;
   font-size: 1.4rem;
   font-family: 'Roboto', sans-serif;
+  background: #202f33;
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+  height: calc(100vh - 7.2rem);
 }
 
 .container {
-  width: 100vw;
   height: 100%;
   display: flex;
   flex-direction: column;
+
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header {
+  width: 100vw;
+  max-width: 1080px;
+  margin: 0 auto;
+  background-color: transparent;
+  padding: 2.6rem 1rem;
+  display: flex;
+  align-items: center;
+  height: 7.2rem;
+
+  h3 {
+    font-size: 2rem;
+    height: fit-content;
+    color: #fff;
+  }
 }
 
 button {
   padding: 0.8em;
   border: none;
-  color: #eee;
-  border-radius: 0.25rem;
-  background-color: #962432;
-  font-weight: 500;
+  font-size: 1.6rem;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #fcb103;
+  color: #000;
+  font-weight: 600;
 
   i {
     font-size: 1em;

@@ -3,13 +3,17 @@
   flex-direction: column;
   border: 1px solid rgba(10, 10, 10, 0.1);
   border-radius: 5px;
+  background-color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
   align-items: center;
-  padding: 2em 1em;
-  width: 300px;
-  height: fit-content;
+  padding: 1rem 2.25rem;
+  width: 100%;
+  min-height: 250px;
   margin: 0 auto;
+  height: 44.5rem;
+  max-width: 380px;
 }
+
 
 .product-img {
   width: 150px;
@@ -24,32 +28,33 @@
   }
 }
 
+h3 {
+    font-size: 1.8rem;
+    height: 40px;
+    line-height: 1;
+  }
+
 .product-details {
   min-width: 250px;
   flex: 1;
   font-weight: 200;
   line-height: 1.5;
-  font-size: 1.4rem;
   position: relative;
   display: flex;
   flex-direction: column;
-  margin: 0 0.5em;
+  margin: 0.5em 0;
   gap: 0.5em;
-
-  h3 {
-    font-size: 1.8rem;
-    height: 40px;
-    line-height: 1;
-  }
+  color: #000;
   
-  #product-description {
-    margin-bottom: 1em;
-
+  .product-description {
     overflow: hidden;
-    display: -webkit-box;
+    font-size: 1.2rem;
+    /* display: -webkit-box;
+    display: hidden;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
-    white-space: pre-wrap; 
+    -webkit-line-clamp: 2;*/ 
+    /* start showing ellipsis when 3rd line is reached */
+    /*white-space: pre-wrap;*/
 
     button {
       background-color: #000;
