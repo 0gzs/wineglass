@@ -43,9 +43,7 @@ exports.addOneWine = async (req, res, next) => {
 
 exports.getWineBy = async (req, res, next) => {
   const { query, filterBy } = req.body
-  console.log(query, filterBy)
   const [rows] = await pool.query(`SELECT * FROM wine WHERE LOCATE(?, ${filterBy}) > 0;`, query)
-  console.log(rows)
   res.status(200).json({
     status: 'success',
     length: rows?.length,

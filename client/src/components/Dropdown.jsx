@@ -1,38 +1,29 @@
 import React, { useState } from 'react'
 import './Dropdown.scss'
 
-const Dropdown = ({ title, options, handler, selected }) => {
-  const [open, setOpen] = useState(false)
-
-  const handleOpen = () => setOpen(!open)
-
-  const handleSelect = (e, i) => {
-    if (i) handler(e.target.innerText, i)
-    else handler(e.target.innerText)
-    setOpen(false) 
-  }
+const Dropdown = ({ handler, options }) => {
+  const [opened, setOpened] = useState(false)
+  const toggle = () => setOpened(!opened)
 
   return (
-    <div className='dropdown'>
-        <div>
-          <button type="button" onClick={handleOpen}>
-            {!selected || selected.length == 0 ? (
-              <>
-                { title } 
-              </>
-            ): (
-              <>
-                { selected }
-              </>
-            )}
-            <i className="fa-solid fa-chevron-down"></i>
-          </button>
-        </div>
+    <div className="dropdown">
+      <div>
+        <button type="button" onClick={toggle}>
+          {!options && "-- Type --"}
+          <i className=""></i>
+        </button>
+      </div>
       {open && (
-        <div className='items-container'>
+        <div className="items-container">
           <div>
-            {options.map((opt, i) => {
-              return <p key={i} onClick={e => handleSelect(e, i)}>{opt}</p>
+            {options.map(value => {
+              return (
+                <p
+                  key={i}
+                  onClick={e => handler(e, i)}>
+                  {value}
+                </p>
+              )
             })}
           </div>
         </div>

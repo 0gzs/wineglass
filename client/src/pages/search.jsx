@@ -1,14 +1,16 @@
 import './style.scss'
-import React from 'react'
+import React, { useState } from 'react'
 import useSearch from '../hooks/useSearch.js'
-import NothingFound from '../assets/nothing-found.svg'
 
 import SearchBox from '../components/SearchBox'
 import WineGrid from '../components/WineGrid'
 import Wine from '../components/Wine.jsx'
+import Dropdown from '../components/Dropdown'
 
 const Search = () => {
   const [wine, searchBy, nothingFound, handleToggle, fetchCallback] = useSearch()
+  
+  
 
   return (
     <>
