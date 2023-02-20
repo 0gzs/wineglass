@@ -1,6 +1,5 @@
-import { useState } from 'react'
-const useRegion = () => {
-  const regionsArr = [
+const fieldData = {
+  region: [
     'New Mexico',
     'California',
     'Vaneto',
@@ -36,12 +35,39 @@ const useRegion = () => {
     'Madeira',
     'New York',
     'San Antonio Valley'
-  ]
-  const [regionSelected, setRegionSelected] = useState(null)
-
-  const regionsHandler = region => setRegionSelected(region) 
-
-  return { regionsArr, regionsHandler, regionSelected }
+  ],
+  types: [
+    'Sparkling',
+    'Chardonnay',
+    'Other Reds',
+    'Cabernet Sauvignon',
+    'Pinot Noir',
+    'Pinot Gris',
+    'Sauvignon Blanc',
+    'Rhone',
+    'Zinfandel',
+    'Merlot',
+    'Malbec',
+    'Blush',
+    'Petice Sirah',
+    'Beaujilais Villages',
+    'Tempranillo',
+    'Chianti',
+    'Other Whites',
+    'Barbera',
+    'Bordeaux',
+    'Sake',
+    'Riesling',
+    'Dessert',
+    'Other Italian',
+    'Vermouth',
+    'Port',
+    'Carbernet Franc',
+    'Shiraz',
+    'Gewurztraminer',
+    'Burgundy'
+  ],
+  rating: [1, 2, 3, 4, 5]
 }
 
-export default useRegion
+export default fieldData

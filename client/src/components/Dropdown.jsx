@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
 import './Dropdown.scss'
+import fieldData from '../data/field-data.js'
 
-const Dropdown = ({ handler, options, title, icon, selected }) => {
+const Dropdown = ({ handler, title, icon, name }) => {
+  const options = fieldData[name]
+
   const [opened, setOpened] = useState(false)
+  const [selected, setSelected] = useState(null)
+
   const toggle = () => setOpened(!opened)
+  
 
   return (
     <div className="dropdown">
@@ -24,8 +30,9 @@ const Dropdown = ({ handler, options, title, icon, selected }) => {
                 <p
                   key={i}
                   onClick={e => {
-                    handler(e.target.innerText)
+                    handler(name, e.target.innerText)
                     setOpened(!opened)
+                    setSelected(e.target.innerText)
                   }}>
                   {value}
                 </p>
