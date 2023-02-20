@@ -54,18 +54,25 @@ exports.getWineBy = async (req, res, next) => {
 exports.findWine = async (req, res, _) => {
   let query = "SELECT * FROM wine "
   const { wineData } = req.body
+  const { type, region, rating, description } = wineData
 
-  if (wineData.type) query += ` WHERE type = '${wineData.type}'`
-  if (wineData.region) query += wineData.type ? ` AND region = '${wineData.region}'` : ` WHERE region = '${wineData.region}'`
-  if (wineData.rating) query += wineData.region || wineData.type ? ` AND rating > '${wineData.rating}'` : ` WHERE rating > '${wineData.rating}';`
-  if (wineData.description && wineData.description[0] != '') {
-    wineData.description.forEach((desc, i) => {
-      if (i > 0) query += ` OR LOCATE('${desc}', description)`
+  if (type) query += ` WHERE type = '${type}'`
+  if (region && !type) query += ` WHERE region = '${region}'`
+  if (region && type) query += ` AND region = '${region}'`
+  if ((type || region) && rating) query += ` AND rating = '${rating}'`
+  else if (!type && !region && rating) query += ` WHERE rating = '${rating}'`
 
-      if (i == 0 && !wineData.description && !wineData.rating && !wineData.type) ` WHERE LOCATE('${desc}', description)`  
-    })
-    query += ';'
-  }
+  if (description && description[0] != '') 
+  description.forEach((desc, i) => {
+    if (i == 0 && (type || region || rating)) {
+      query += ` AND LOCATE('${desc}', description)`
+      return
+    } else if (i == 0) {
+      query += ` WHERE LOCATE('${desc}', description)`
+    }
+  })
+
+  query += ';'
 
   const [rows] = await pool.query(query)
   res.status(200).json({
