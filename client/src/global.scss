@@ -23,23 +23,18 @@ body {
   height: calc(100vh - 7.2rem);
 }
 
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-
-  max-width: 400px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1rem;
+h1 {
+  font-size: 3.6rem;
+  font-weight: 500;
+  color: #A1BDC4;
 }
 
 header {
   width: 100vw;
-  max-width: 1080px;
+  max-width: 1440px;
   margin: 0 auto;
   background-color: transparent;
-  padding: 2.6rem 1rem;
+  padding: 3em 2.6em;
   display: flex;
   align-items: center;
   height: 7.2rem;
@@ -48,6 +43,12 @@ header {
     font-size: 2rem;
     height: fit-content;
     color: #fff;
+  }
+}
+
+@media (min-width: 780px) {
+  header {
+    padding: 3em 5em
   }
 }
 
@@ -78,4 +79,10 @@ svg {
   height: 100px;
   margin: 20px auto;
   display:inline-block;
+}
+
+.sub-heading {
+  font-size: 1.6rem; 
+  color: #fff;
+  margin: 0.5em 0;
 }

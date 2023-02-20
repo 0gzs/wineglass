@@ -5,12 +5,11 @@
   color: #000;
 
   button {
-    width: 100%;
-    display: inline-flex;
-    border: none;
-    font-size: 1.6rem;
+    padding: 0.8em 3em;
+    border-radius: 5px;
     background-color: #fff;
-    padding: 0.5em 2.8em;
+    display: inline-flex;
+  }
 
     .exit:hover {
       color: red;
@@ -20,10 +19,6 @@
       right: 1em;
     }
     
-    &:hover {
-      cursor: pointer;
-    }
-  }
 }
 
 i {
