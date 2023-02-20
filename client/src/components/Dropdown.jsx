@@ -8,8 +8,18 @@ const Dropdown = ({ handler, title, icon, name }) => {
   const [opened, setOpened] = useState(false)
   const [selected, setSelected] = useState(null)
 
-  const toggle = () => setOpened(!opened)
-  
+  const toggle = () => {
+    if (selected) {
+      setOpened(false)
+      close()
+      return
+    } else setOpened(true)
+  }
+  const close = () => {
+    setOpened(false)
+    setSelected(null)
+    handler(name, null)
+  }
 
   return (
     <div className="dropdown">
@@ -17,7 +27,11 @@ const Dropdown = ({ handler, title, icon, name }) => {
         <i className={icon + " icon-left"}></i>
         <button type="button" onClick={toggle}>
           {selected || title}
-          <i className="fa-solid fa-chevron-down icon-right"></i>
+          {selected ? (
+            <i className="fa-solid fa-xmark icon-right exit"></i>
+          ) : (
+            <i className='fa-solid fa-chevron-down icon-right'></i>
+          )}          
         </button>
       </div>
       {opened && (

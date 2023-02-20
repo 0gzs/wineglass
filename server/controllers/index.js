@@ -69,6 +69,8 @@ exports.findWine = async (req, res, _) => {
       return
     } else if (i == 0) {
       query += ` WHERE LOCATE('${desc}', description)`
+    } else {
+      query += ` OR LOCATE('${desc}', description)`
     }
   })
 
