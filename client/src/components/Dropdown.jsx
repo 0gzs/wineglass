@@ -2,36 +2,36 @@ import React, { useState } from 'react'
 import './Dropdown.scss'
 import fieldData from '../data/field-data.js'
 
-const Dropdown = ({ handler, title, icon, name }) => {
+const Dropdown = ({ onChange, title, icon, name }) => {
   const options = fieldData[name]
 
   const [opened, setOpened] = useState(false)
   const [selected, setSelected] = useState(null)
 
-  const toggle = () => {
-    if (selected) {
-      setOpened(false)
-      close()
-      return
-    } else setOpened(true)
-  }
-  const close = () => {
+  const toggle = () => setOpened(!opened)
+
+  const reset = () => {
     setOpened(false)
     setSelected(null)
-    handler(name, null)
+  }
+
+  const handleChange = option => {
+    onChange(name, option)
+    toggle()
+    setSelected(option)
   }
 
   return (
     <div className="dropdown">
-      <div style={{ position: 'relative'}}>
+      <div style={{ position: 'relative' }}>
         <i className={icon + " icon-left"}></i>
         <button type="button" onClick={toggle}>
           {selected || title}
-          {selected ? (
-            <i className="fa-solid fa-xmark icon-right exit"></i>
-          ) : (
-            <i className='fa-solid fa-chevron-down icon-right'></i>
-          )}          
+          {opened && !selected ? (
+            <i className="fa-solid fa-chevron-up icon-right"></i>
+          ) : !selected ?
+            (<i className='fa-solid fa-chevron-down icon-right'></i>
+            ) : (<i className='fa-solid fa-xmark icon-right exit' onClick={reset}></i>)}
         </button>
       </div>
       {opened && (
@@ -43,11 +43,7 @@ const Dropdown = ({ handler, title, icon, name }) => {
               return (
                 <p
                   key={i}
-                  onClick={e => {
-                    handler(name, e.target.innerText)
-                    setOpened(!opened)
-                    setSelected(e.target.innerText)
-                  }}>
+                  onClick={() => handleChange(value, name)}>
                   {value}
                 </p>
               )

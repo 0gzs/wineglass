@@ -54,21 +54,27 @@ exports.getWineBy = async (req, res, next) => {
 exports.findWine = async (req, res, _) => {
   let query = "SELECT * FROM wine "
   const { wineData } = req.body
+  const { strict } = req.body
+
   const { type, region, rating, description } = wineData
 
   if (type) query += ` WHERE type = '${type}'`
-  if (region && !type) query += ` WHERE region = '${region}'`
-  if (region && type) query += ` AND region = '${region}'`
-  if ((type || region) && rating) query += ` AND rating = '${rating}'`
-  else if (!type && !region && rating) query += ` WHERE rating = '${rating}'`
+
+  if (!type && region) query += ` WHERE region = '${region}'`
+  if (type && region && strict) query += ` AND region = '${region}'`
+  if (type && region && !strict) query += ` OR region = '${region}'`
+
+  if (!type && !region && rating) query += ` WHERE rating = '${rating}'`
+  if ((type || region) && rating && strict) query += ` AND rating = '${rating}'`
+  if ((type || region) && rating && !strict) query += ` OR rating = '${rating}'`
 
   if (description && description[0] != '') 
   description.forEach((desc, i) => {
     if (i == 0 && (type || region || rating)) {
       query += ` AND LOCATE('${desc}', description)`
       return
-    } else if (i == 0) {
-      query += ` WHERE LOCATE('${desc}', description)`
+    } else if (i == 0 && (!type && !rating && !region) || !strict) {
+      query += ` WHERE description LIKE '%${desc}%'`
     } else {
       query += ` OR LOCATE('${desc}', description)`
     }

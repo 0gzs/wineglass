@@ -1,54 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import styles from './search.module.css'
-import useSearch from '../hooks/useSearch.js'
 
-import Dropdown from '../components/Dropdown.jsx'
 import Wine from '../components/wine'
+import Form from '../components/form'
 
 const MainSearch = () => {
-  const { wine, description, handler, submit, empty } = useSearch()
+  const [wine, setWine] = useState(null)
+  const [empty, setEmpty] = useState(false)
+
+  const resultsHandler = data => {
+    setWine(data)
+    if (data.length == 0) setEmpty(true)
+  }
+
+  useEffect(() => {
+    if (!wine || wine.length > 0) setEmpty(false)
+  }, [wine])
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.container}>
-        <h1>Let's find your new favorite wine.</h1>
-        <p className='sub-heading'>Provide us with a few details that might assist us in our search</p>
-
-        <div>
-          <div className={styles.formGroup}>
-            <Dropdown
-              title={'Types of wine'}
-              name="types"
-              icon={"fa-solid fa-wine-bottle"}
-              handler={handler} />
-          </div>
-
-          <div className={styles.formGroup}>
-            <Dropdown
-              handler={handler}
-              title={'Region'}
-              name="region"
-              icon={"fa-regular fa-map"} />
-          </div>
-
-          <div className={styles.formGroup}>
-            <Dropdown
-              handler={handler}
-              title={'Rating'}
-              icon={"fa-solid fa-star-half-stroke"}
-              name="rating" />
-          </div>
-
-
-          <div className={styles.formGroup}>
-            <input type="text" placeholder='e.g. butter, tannin, cherry, fig' value={description} onChange={e => handler('desc', e.target.value)} />
-          </div>
-
-          <button type="button" onClick={submit}>Submit</button>
-        </div>
-
-      </div>
+      <Form resultsHandler={resultsHandler} />
 
       {wine && (
         <div className={styles.resultsGrid}>
@@ -57,8 +29,8 @@ const MainSearch = () => {
       )}
       {empty && (
         <div className={styles.empty}>
-              <i class="fa-solid fa-wine-glass-empty"></i>
-              <p style={{ textTransform: 'uppercase' }}>Nothing here</p>
+          <i className="fa-solid fa-wine-glass-empty"></i>
+          <p style={{ textTransform: 'uppercase' }}>Nothing here</p>
         </div>
       )}
     </div>

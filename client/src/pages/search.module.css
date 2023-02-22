@@ -23,33 +23,6 @@
   }
 }
 
-.container {
-  min-height: 480px;
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-.formGroup {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.25em;
-  height: 5.6rem;
-  background-color: #fff;
-  margin: 0.8em 0; 
-}
-
-input[type="text"] {
-    padding: 1em;
-    width: 100%;
-    border: none;
-    font-size: 1.6rem;
-}
-
 .resultsGrid {
   flex: 1;
     position: relative;
@@ -80,4 +53,3 @@ input[type="text"] {
   font-size: 4rem;
   margin: 2em auto;
 }
-

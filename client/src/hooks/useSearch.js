@@ -1,17 +1,18 @@
 import axios from "axios"
-import { useState } from "react"
+import { useCallback, useState } from "react"
 
-const useSearch = () => {
-  const [wine, setWine] = useState()
+const useSearch = (resultsHandler) => {
+  const [results, setResults] = useState()
+  const [strict, setStrict] = useState(false)
+  const [empty, setEmpty] = useState(false)
 
   const [type, setType] = useState(null)
   const [region, setRegion] = useState(null)
   const [rating, setRating] = useState(null)
   const [description, setDescription] = useState('')
   
-  const [empty, setEmpty] = useState(false)
 
-  const handler = (name, value) => {
+  const handler = useCallback((name, value) => {
     switch (name) {
       case 'types':
         setType(value)
@@ -28,9 +29,10 @@ const useSearch = () => {
       default:
         break
     }
-  }
+  }, [setType])
 
-  const submit = async () => {
+  const submit = async e => {
+    e.preventDefault()
     setEmpty(false)
     const keywords = description.split(',')
 
@@ -41,8 +43,8 @@ const useSearch = () => {
     if (keywords.length > 0) wineData['description'] = keywords
 
     try {
-      const response = await axios.post('/wine/api/main-search', { wineData: wineData })
-      setWine(response.data.data)
+      const response = await axios.post('/wine/api/main-search', { wineData: wineData, strict: strict })
+      resultsHandler(response.data.data)
       if (response.data.data.length == 0) setEmpty(true)
       else setEmpty(false)
     } catch (err) {
@@ -50,7 +52,7 @@ const useSearch = () => {
     }
   }
 
-  return { wine, description, handler, submit, empty }
+  return { results, description, handler, submit, empty, strict, setStrict }
 }
 
 export default useSearch

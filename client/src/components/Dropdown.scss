@@ -9,6 +9,7 @@
     border-radius: 5px;
     background-color: #fff;
     display: inline-flex;
+    font-size: 1.4rem;
   }
 
   .exit {
@@ -40,14 +41,15 @@ i {
 .items-container {
   position: absolute;
   left: 0;
-  top: 100%;
+  top: 120%;
   z-index: 10;
   margin-top: 0.5rem;
   width: 100%;
   max-height: 20em;
   box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
-  border-radius: 0.5vw;
   overflow: scroll;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
   background-color: white;
 
   div {
