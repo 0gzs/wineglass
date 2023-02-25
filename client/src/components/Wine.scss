@@ -11,6 +11,18 @@
   margin: 0 auto;
   height: fit-content;
   max-width: 380px;
+  position: relative;
+}
+
+.barcode {
+  width: 10rem;
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  
+  img {
+    max-width: 100%;
+  }
 }
 
 

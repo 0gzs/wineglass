@@ -19,6 +19,9 @@ const Wine = ({ wine }) => {
           <p><span>SKU: </span>{wine.sku}</p>
         </div>
       </div>
+      <div className="barcode">
+        <img src={`https://barcode.tec-it.com/barcode.ashx?data=${wine.sku}&code=Code128`} alt="barcode" />
+      </div>
     </div>
   )
 }
