@@ -68,16 +68,16 @@ exports.findWine = async (req, res, _) => {
   if ((type || region) && rating && strict) query += ` AND rating >= '${rating}'`
   if ((type || region) && rating && !strict) query += ` OR rating >= '${rating}'`
 
-  if (description && description[0] != '') 
-  description.forEach((desc, i) => {
-    if (i == 0 && (!type && !rating && !region)) {
-      query += ` WHERE description LIKE '%${desc}%'`
-    } else if (i == 0 && (type || region || rating) && strict) {
-      query += ` AND description LIKE '%${desc}%'`
-    } else {
-      query += ` OR LOCATE('${desc}', description)`
-    }
-  })
+  if (description && description[0] != '')
+    description.forEach((desc, i) => {
+      if (i == 0 && (!type && !rating && !region)) {
+        query += ` WHERE description LIKE '%${desc}%'`
+      } else if (i == 0 && (type || region || rating) && strict) {
+        query += ` AND description LIKE '%${desc}%'`
+      } else {
+        query += ` OR LOCATE('${desc}', description)`
+      }
+    })
 
   query += ';'
   console.log(query)
@@ -98,6 +98,24 @@ exports.getTypes = async (_, res) => {
     data: rows
   })
 }
+
+exports.saveBarcodeImg = async (req, res) => {
+  const { id } = req.params
+  const { img } = req.body
+  const [rows] = await pool.query(`UPDATE wine SET barcode = ${img} WHERE id = ${id};`)
+  res.status(200).json({
+    status: 'success',
+    length: rows?.length,
+    data: rows
+  })
+}
+
+
+
+
+
+
+
 
 
 

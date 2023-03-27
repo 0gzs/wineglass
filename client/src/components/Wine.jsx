@@ -1,7 +1,26 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import './Wine.scss'
 
 const Wine = ({ wine }) => {
+  const [barcode, setBarcode] = useState(false)
+
+  useEffect(() => {
+    const saveBarcode = async () => {
+      try {
+        const response = await axios.post(`/update-barcode/${wine.id}`, {
+          img: wine.img
+        })
+        alert(response)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    if (barcode) {
+      saveBarcode()
+    }
+  }, [barcode])
+
   return (
     <div className='product-container'>
       <div className='product-img'>
@@ -19,9 +38,18 @@ const Wine = ({ wine }) => {
           <p><span>SKU: </span>{wine.sku}</p>
         </div>
       </div>
-      <div className="barcode">
-        <img src={`https://barcode.tec-it.com/barcode.ashx?data=${wine.sku}&code=Code128`} alt="barcode" />
-      </div>
+      {barcode ? (
+        <div className="barcode">
+          <img src={`https://barcode.tec-it.com/barcode.ashx?data=${wine.sku}&code=Code128`} alt="barcode" />
+        </div>
+      ) : (
+        <button 
+            type="button" 
+            className='button'
+            onClick={() => setBarcode(true)}>
+          View Barcode
+        </button>
+      )}
     </div>
   )
 }

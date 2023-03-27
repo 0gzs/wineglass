@@ -14,6 +14,20 @@
   position: relative;
 }
 
+.product-container > button {
+  width: fit-content;
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 1vw;
+  right: 1vw;
+  background-color: #202f3399;
+  color: white;
+
+  &:hover, &:active {
+    background-color: #202f33;
+  }
+}
+
 .barcode {
   width: 10rem;
   position: absolute;

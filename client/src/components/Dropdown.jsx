@@ -25,7 +25,7 @@ const Dropdown = ({ onChange, title, icon, name }) => {
     <div className="dropdown">
       <div style={{ position: 'relative' }}>
         <i className={icon + " icon-left"}></i>
-        <button type="button" onClick={toggle}>
+        <button className='button' type="button" onClick={toggle}>
           {selected || title}
           {opened && !selected ? (
             <i className="fa-solid fa-chevron-up icon-right"></i>

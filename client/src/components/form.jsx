@@ -92,7 +92,7 @@ const Form = ({ resultsHandler }) => {
 
         <StrictSearchComponent strict={strict} setStrict={setStrict}/>
 
-        <button type="button" onClick={submit}>Submit</button>
+        <button className='button' type="button" onClick={submit}>Submit</button>
       </div>
     </div>
   )

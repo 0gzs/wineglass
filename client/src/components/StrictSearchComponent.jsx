@@ -31,7 +31,7 @@ const StrictSearchComponent = ({ strict, setStrict }) => {
       <p>Strict search: </p>
       <div className={!strict ? styles.toggle : styles.toggled}>
         <button
-          className={styles.on}
+          className={`${styles.on} button`}
           onClick={() => buttonHandler('strict', !strict)}>
         </button>
       </div>
